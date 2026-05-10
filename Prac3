@@ -1,0 +1,36 @@
+import pandas as pd
+import numpy as np
+df=pd.read_csv('Employee.csv')
+df
+
+df.isnull().sum()
+# df.fillna(df.mean(), inplace=True)
+grouped=df.groupby('Department')
+summary=grouped['Salary'].agg(['mean','median','min','max','std'])
+print(summary)
+engg_salary=df[df['Department']=='Engineering']['Salary'].tolist();
+finance_salary=df[df['Department']=='Finance']['Salary'].tolist();
+hr_salary=df[df['Department']=='HR']['Salary'].tolist();
+mrkting_salary=df[df['Department']=='Marketing']['Salary'].tolist();
+prod_salary=df[df['Department']=='Product']['Salary'].tolist();
+sales_salary=df[df['Department']=='Sales']['Salary'].tolist();
+print("Engineering: ", engg_salary)
+print("Finance: ", finance_salary)
+print("HR: ", hr_salary)
+print("Marketing: ", mrkting_salary)
+print("Product: ", prod_salary)
+print("Sales: ", sales_salary)
+
+df=pd.read_csv('Iris.csv')
+df
+grouped = df.groupby("Species")
+summary = grouped.mean()
+print(summary)
+grouped.describe()
+setosa = df[df["Species"] == "Iris-setosa"]["SepalLengthCm"].tolist()
+versicolor = df[df["Species"] == "Iris-versicolor"]["SepalLengthCm"].tolist()
+virginica = df[df["Species"] == "Iris-virginica"]["SepalLengthCm"].tolist()
+print("Iris-setosa: ",setosa)
+print("Iris-versicolor: ",versicolor)
+print("Iris-virginica:",virginica)
+

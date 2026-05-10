@@ -1,0 +1,29 @@
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score
+df=pd.read_csv('/home/student/A25/BostonHousing.csv')
+df["Gender"].replace({"Male":0, "Female":1} inplace=True)
+df 
+df.columns
+x = df[['User ID', 'Gender', ...]]
+y = df["Purchased"]
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+model = LogisticRegression()
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+y_pred
+model.score(X_train, y_train)
+model.score(X,y)
+cm=confusion_matrix(y_test, y_pred)
+cm
+print(confusion_matrix.__doc__)
+tn, fp, fn, tp = confusion_matrix(y_test, y_pred).ravel()
+print(tn, fp, fn, tp)
+a = accuracy_score(y_test, y_pred)
+a
+e = a - 1
+e
+precision_score(y_test, y_pred)
+recall_score(y_test, y_pred)

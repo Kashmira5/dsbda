@@ -1,0 +1,10 @@
+import seaborn as sns
+df=sns.load_dataset('titanic')
+df
+df.isnull().sum()
+df['age'].fillna(df['age'].mean(), inplace=True)
+df['embarked'].fillna(df['embarked'].mode()[0], inplace=True)
+df['deck'].fillna(df['deck'].mode()[0], inplace=True)
+df['embark_town'].fillna(df['embark_town'].mode()[0], inplace=True)
+df.isnull().sum()
+sns.boxplot(data=df, x='sex', y='age', hue='survived')

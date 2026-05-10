@@ -1,0 +1,15 @@
+import seaborn as sns
+df= sns.load_dataset('titanic')
+df
+df.isnull().sum()
+df['age'].fillna(df['age'].mean(), inplace=True)
+df['deck'].fillna(df['deck'].mode()[0], inplace=True)
+df['embarked'].fillna(df['embarked'].mode()[0], inplace=True)
+df['embark_town'].fillna(df['embark_town'].mode()[0], inplace=True)
+df
+df.isnull().sum()
+
+sns.lineplot(data=df, x='pclass', y='age')
+sns.scatterplot(data=df, x='age', y='fare')
+sns.boxplot(data=df, x='pclass', y='age')
+sns.histplot(data=df, x='fare',kde=True)

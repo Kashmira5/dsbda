@@ -1,0 +1,22 @@
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+df = pd.read_csv("https://raw.githubusercontent.com/shrikant-temburwar/Iris-Dataset/master/Iris.csv")
+df.head()
+df.describe()
+df.shape()
+df.groupby("Species")
+df.groupby("Species").size()
+df.info()
+df.describe(include = 'object')
+df.isnull().sum()
+sns.histplot(x = df['sepal_length'], kde=True)
+sns.histplot(x = data['sepal_width'], kde=True)
+sns.histplot(x = data['petal_length'], kde=True)
+sns.histplot(x = data['petal_width'], kde=True)
+sns.boxplot(data['sepal_length'])
+sns.boxplot(data['sepal_width'])
+sns.boxplot(data['petal_length'])
+sns.boxplot(data['petal_width'])
+sns.boxplot(x='sepal_length',y='species',data=data)
+sns.boxplot(x='petal_length',y='species',data=data)
